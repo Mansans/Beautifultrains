@@ -1,0 +1,16 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero {
+    background-image: url('https://source.unsplash.com/1600x600/?train,railway');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+
+.btn-primary {
+    background-color: #003366;
+    border-color: #003366;
+}

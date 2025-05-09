@@ -1,0 +1,37 @@
+{% block content %}
+  <div class="bg-dark text-white py-5">
+    <div class="container text-center">
+      <h1 class="display-3 fw-bold">Welcome to Beautiful Trains</h1>
+      <p class="lead">Discover handcrafted model trains for every enthusiast.</p>
+      <a href="/shop" class="btn btn-warning btn-lg mt-3">Shop Now</a>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <h2 class="text-center text-primary mb-4">Featured Train</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        {# Check if the node has an image field and it’s not empty #}
+        {% if node.field_image.entity is not empty %}
+          <img src="{{ file_url(node.field_image.entity.uri.value) }}" class="img-fluid mb-4" alt="{{ node.title }}">
+        {% else %}
+          <div class="placeholder-image bg-light" style="height: 200px;">
+            <p class="text-center text-muted">No image available</p>
+          </div>
+        {% endif %}
+
+        {# Title and Body Fields #}
+        <h5 class="card-title">{{ node.title }}</h5>
+        <p class="card-text">{{ node.body.value | raw }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-secondary text-white py-5">
+    <div class="container text-center">
+      <h2>Join Our Railway Club</h2>
+      <p>Get updates, discounts, and exclusive collector editions.</p>
+      <a href="/subscribe" class="btn btn-outline-light mt-3">Subscribe</a>
+    </div>
+  </div>
+{% endblock %}

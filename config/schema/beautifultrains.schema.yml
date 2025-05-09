@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Bootstrap Barrio Subtheme.
+
+beautifultrains.settings:
+  type: theme.settings
+  label: 'beautifultrains settings'

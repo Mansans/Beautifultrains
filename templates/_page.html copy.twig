@@ -1,0 +1,60 @@
+{#
+
+
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  <body{{ attributes.addClass('bg-white', 'text-dark') }}>
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    {# Header #}
+    <header class="bg-primary text-white py-4 mb-4">
+      <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="h3 mb-0">🚂 Beautiful Trains</h1>
+        <nav>
+          {{ page.primary_menu }}
+        </nav>
+      </div>
+    </header>
+
+    {# Main Content #}
+    <main id="main-content" role="main">
+      <div class="container">
+        {% if breadcrumb %}
+          <nav aria-label="breadcrumb">{{ breadcrumb }}</nav>
+        {% endif %}
+
+        {% if messages %}
+          <div class="alert alert-warning mt-3">
+            {{ messages }}
+          </div>
+        {% endif %}
+
+        {% block content %}
+          {{ page.content }}
+        {% endblock %}
+      </div>
+    </main>
+
+    {# Footer #}
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container text-center">
+        <p class="mb-1">All Aboard! &copy; {{ "now"|date("Y") }} Beautiful Trains</p>
+        <small class="text-muted">Crafted with love for model railway fans.</small>
+      </div>
+    </footer>
+
+    {{ page.bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>
+
+
+#}
